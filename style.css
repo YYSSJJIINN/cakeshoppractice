@@ -5,11 +5,84 @@
     color: #6b3e26; /* 파란색을 기본 색상으로 바꾸지 않고, 원래 색상 유지 */
     text-decoration: none; /* 기본 파란색 하이퍼링크 스타일 없애기 */
 }
+.login-container {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+}
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #6b3e26;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.login-container button:hover {
+    background: #a0522d;
+}
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+}
 .links a {
+    color: #6b3e26;
     margin: 0 5px;
+    text-decoration: none;
 }
 .links a:hover {
     text-decoration: underline; /* 마우스 올렸을 때만 밑줄 */
+}
+form { 
+    display: inline-block; 
+    text-align: left; 
+    padding: 20px; 
+    border: 2px solid #ffcc80; /* 연한 주황 테두리 */
+    border-radius: 10px; 
+    background-color: #ffffff; /* 흰 배경 */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+}
+.error { 
+    color: red; 
+    font-size: 12px; 
+    display: none; 
+}
+/* 🍩 달콤한 버튼 스타일 */
+button {
+    background-color: #ffb74d; /* 따뜻한 오렌지 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px; /* 둥글게 */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* 마우스를 올렸을 때 */
+button:hover {
+    background-color: #ff9800; /* 좀 더 진한 오렌지 */
+    transform: scale(1.05); /* 살짝 커지는 효과 */
+}
+/* 클릭했을 때 */
+button:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 .arrow-btn {
     background: none;  /* 배경 제거 */
@@ -24,6 +97,8 @@
     outline: none;  /* 클릭 시 테두리 제거 */
 }
 body {
+    justify-content: center;  /* 수평 중앙 정렬 */
+    align-items: center;  /* 수직 중앙 정렬 */
     font-family: Arial, sans-serif;
     display: flex;
     text-align: center;
