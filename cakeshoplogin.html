@@ -7,21 +7,98 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="login-container">
-    <h2>로그인</h2>
-    <form action="#" method="POST">
-        <input type="text" placeholder="아이디" required>
-        <input type="password" placeholder="비밀번호" required>
-        
-        <button type="submit">로그인</button>
-    </form>
-    <div class="links">
-        <a href="#">아이디 찾기</a> | 
-        <a href="#">비밀번호 찾기</a> | 
-        <a href="#">회원가입</a>
-    </div>
-</div>
+    <header>
+        <div class="logo">Cheetah Lee's Cake</div>
+        <nav>
+            <a href="bestcake.html">홈</a>
+            <a href="categ.html">메뉴</a>
+            <a href="order.html">주문하기</a>
+            <a href="QNA.html">문의하기</a>
+            <a href="cakeshoplogin.html">회원관리</a>
+        </nav>
+    </header>
+    
+    
+    
+    <main>
+        <aside id="left-aside">
+            <h3>카테고리</h3>
+            <ul class="category-menu">
+                <li class="dropdown">
+                    <a href="cake.html">CAKE</a>
+                    <ul class="submenu">
+                        <li><a href="ricecake.html">앙금케이크<span class="move"></span></a></li>
+                        <li><a href="lunchbox.html">도시락케이크<span class="move"></span></a></li>
+                        <li><a href="letter.html">레터링케이크<span class="move"></span></a></li>
+                        <li class="dropdown"><a href="#">도형케이크<span class="move"></span></a>
+                            <ul class="submenu">
+                                <li><a href="circle.html">원형</a></li>
+                                <li><a href="heart.html">하트</a></li>
+                                <li><a href="char.html">캐릭터</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                        <a href="bread.html">BREAD</a>
+                        <ul class="submenu">
+                            <li><a href="plain.html">식빵<span class="move"></span></a></li>
+                        </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="cookies.html">COOKIE</a>
+                        <ul class="submenu">
+                            <li><a href="smorescookie.html">스모어쿠키<span class="move"></span></a></li>
+                            <li><a href="carrotcookie.html">당근쿠키<span class="move"></span></a></li>
+                            <li><a href="buttercookie.html">버터쿠키<span class="move"></span></a></li>
+                        </ul>
+                </li>
+                <li><a href="dessert.html">DESSERT</a></li>
+            </ul>
+        </aside>
+    
+        <section>
+            <div class="login-container">
+                <h2>로그인</h2>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="아이디" required>
+                    <input type="password" placeholder="비밀번호" required>
+                    
+                    <button type="submit">로그인</button>
+                </form>
+                <div class="links">
+                    <a href="#">아이디 찾기</a> | 
+                    <a href="#">비밀번호 찾기</a> | 
+                    <a href="#">회원가입</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <aside id="right-aside">
+        <h3>🎉 이벤트</h3>
+        <p>신규 회원 가입 시 10% 할인!</p>
+        <!-- <img src="https://via.placeholder.com/150" alt="광고 이미지"> -->
+        <br><br>
+        <h3>🎉 카카오톡 플친 추가 이벤트</h3>
+        <p>플친 추가 시 무료배송!</p>
+        <!-- <img src="https://via.placeholder.com/150" alt="광고 이미지"> -->
+    </aside>
+    <footer>
+        <div class="info">
+            회사명 <span>치타리 케이크</span> 대표자명 <span>양서진</span> 주소 <span>서울 종로구 인사동길 12 대일빌딩 7층</span> 대표번호 <span>1998-1999</span>
+            <br>
+            사업자등록번호
+            <span>214-88-84534</span>
+            통신판매업 신고번호
+            <span>제2024-서울종로-09982호</span>
+            개인정보보호책임자
+            <span>양서진 / sjlovesnct@gmail.com</span>
+        </div>
+        <div class="protect">
+            치타리 케이크의 모든 디자인은 저작권의 보호를 받고 있습니다.<br>
+            © 2025 Cheetah Lee's Cake | 모든 권리 보유
+        </div>
+    </footer>
 
 </body>
 </html>
