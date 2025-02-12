@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3e0; /* 부드러운 베이지 배경 */
+            /* margin-top: 50px */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #6b3e26;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container button:hover {
+            background: #a0522d;
+        }
+        .links {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #6b3e26;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        form { 
+            display: inline-block; 
+            text-align: left; 
+            padding: 20px; 
+            border: 2px solid #ffcc80; /* 연한 주황 테두리 */
+            border-radius: 10px; 
+            background-color: #ffffff; /* 흰 배경 */
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+        }
+        .error { 
+            color: red; 
+            font-size: 12px; 
+            display: none; 
+        }
+        /* 🍩 달콤한 버튼 스타일 */
+        button {
+            background-color: #ffb74d; /* 따뜻한 오렌지 */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px; /* 둥글게 */
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        /* 마우스를 올렸을 때 */
+        button:hover {
+            background-color: #ff9800; /* 좀 더 진한 오렌지 */
+            transform: scale(1.05); /* 살짝 커지는 효과 */
+        }
+        /* 클릭했을 때 */
+        button:active {
+            transform: scale(0.95); /* 살짝 눌리는 효과 */
+        }
+    </style>
+    <title>회원관리</title>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>로그인</h2>
+    <form action="#" method="POST">
+        <input type="text" placeholder="아이디" required>
+        <input type="password" placeholder="비밀번호" required>
+        
+        <button type="submit">로그인</button>
+    </form>
+    <div class="links">
+        <a href="#">아이디 찾기</a> | 
+        <a href="#">비밀번호 찾기</a> | 
+        <a href="#">회원가입</a>
+    </div>
+</div>
+
+</body>
+</html>

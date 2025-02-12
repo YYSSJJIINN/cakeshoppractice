@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초콜릿 무스 케이크 - 상세 정보</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        header {
+            background: #6b3e26;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .slides {
+            display: flex;      /* 이미지가 가로로 정렬됨. */
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .description {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff5e1;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .description {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff5e1;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: #6b3e26;
+            padding: 15px;
+            color: white;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #d2691e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background: #a0522d;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    초콜릿 무스 케이크
+</header>
+
+<main>
+    <!-- <img src="chocolate-mousse-cake.jpg" alt="초콜릿 무스 케이크"> -->
+    <!-- 이미지 슬라이더 -->
+    <div class="slider-container">
+        <div class="slides">
+            <img src="chocolate-cake1.jpg" alt="초콜릿 무스 케이크 1">
+            <img src="chocolate-cake2.jpg" alt="초콜릿 무스 케이크 2">
+            <img src="chocolate-cake3.jpg" alt="초콜릿 무스 케이크 3">
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    
+    <div class="description">
+        <h2>진한 초콜릿의 풍미!</h2>
+        <p>
+            부드러운 초콜릿 무스와 촉촉한 케이크 시트가 어우러진 최고의 디저트입니다.  
+        </p>
+        달콤하면서도 깊은 맛을 느낄 수 있는 초콜릿 애호가를 위한 완벽한 선택!
+        <p><strong>가격:</strong> 25,000원</p>
+    </div>
+
+    <a href="index.html">← 메인 페이지로 돌아가기</a>
+</main>
+
+<footer>
+    © 2025 베이커리 온라인샵 | 모든 권리 보유
+</footer>
+<script>
+    let currentIndex = 0;
+    
+    function showSlide(index) {
+        const slides = document.querySelector(".slides");
+        const totalSlides = document.querySelectorAll(".slides img").length;
+        
+        if (index >= totalSlides) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalSlides - 1;
+        } else {
+            currentIndex = index;
+        }
+        
+        const offset = -currentIndex * 100 + "%";
+        slides.style.transform = "translateX(" + offset + ")";      /* 슬라이드 애니메이션 효과 적용 */
+    }
+
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+</script>
+
+</body>
+</html>

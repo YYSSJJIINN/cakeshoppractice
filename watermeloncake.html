@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>베이커리 온라인샵</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #6b3e26; /* 파란색을 기본 색상으로 바꾸지 않고, 원래 색상 유지 */
+            text-decoration: none; /* 기본 파란색 하이퍼링크 스타일 없애기 */
+        }
+        .links a {
+            margin: 0 5px;
+        }
+        .links a:hover {
+            text-decoration: underline; /* 마우스 올렸을 때만 밑줄 */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #FBEFF1;
+            width: 100%;
+            height: 80px;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* 수직 중앙 정렬 추가 */
+        }
+        nav {
+            background: #FBEFF1;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+        }
+        aside {
+            width: 20%;
+            background: #ffffff;
+            padding: 15px;
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);  /* 그림자 추가. 입체적 요소. */
+            /* height: calc(100vh - 280px); */
+        }
+        #left-aside {
+            position: fixed; /* 요소를 화면에 고정해서 스크롤을 해도 움직이지 않음. */
+            left: 10px; /* 화면 왼쪽에서 10px 떨어진 위치에 배치 */
+        }
+        #right-aside {
+            position: fixed;
+            right: 10px;
+            top: 150px;
+            background-color: #ffeb3b;
+        }
+        aside ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        aside ul li {
+            position: relative; /* 부모 요소 기준 위치 */
+        }
+
+        aside ul ul {
+            display: none;
+            padding-left: 15px;
+            position: relative; /* 부모 요소 기준 위치 */
+        }
+
+        aside ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        aside ul li a:hover {
+            background-color: #f4f4f4;
+        }
+        aside li:hover > ul {
+            display: block;
+        }
+
+        /* 기본 스타일 */
+        .category-menu {
+            list-style: none; /* 리스트 스타일 제거 */
+            padding: 0;
+        }
+
+        .category-menu li {
+            position: relative;
+            padding: 10px;
+        }
+
+        .category-menu a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 5px 10px;
+        }
+        /* 서브메뉴 기본적으로 숨기기 */
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%; /* 부모 li 기준으로 오른쪽에 배치 */
+            top: 0;
+            /* top: 100%; 부모 아래에 위치 */
+            background: white;
+            list-style: none;
+            padding: 5px 0;
+            border: 1px solid #ddd;
+            min-width: 150px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100; /* 다른 요소보다 위에 표시 */
+        }
+        /* 2단계 하위 메뉴 (도형 케이크 하위 카테고리) */
+        .dropdown .submenu {
+            left: 100%; /* 부모 li의 오른쪽에 위치 */
+            top: 0; /* 상위 메뉴와 동일한 높이 */
+        }
+        /* 마우스를 올리면 하위 메뉴 보이게 */
+        /* .dropdown:hover .submenu로 하면 하위메뉴가 계속 보이는 상태이므로 주의하자. */
+        .dropdown:hover > .submenu {
+            display: block;
+        }
+        /* 하위 메뉴가 사라지는 문제 해결 */
+        .dropdown {
+            position: relative;
+        }
+        .submenu li {
+            position: relative;
+            white-space: nowrap; /* 줄바꿈 방지 */
+            padding: 10px;
+        }
+
+        /* 주문 버튼 */
+        .order-btn {
+            background-color: #6b3e26;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .order-btn:hover {
+            background-color: #5a321f;
+            transform: scale(1.1);
+        }
+        section {
+            flex: 1;
+            padding: 20px;
+        }
+        .order-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 180px;
+        }
+        .cake-image {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .cake-image img {
+            width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .prev-btn, .next-btn {
+            background: rgba(255, 255, 255, 0.8);
+            color: #6b3e26;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn { left: -40px; }
+        .next-btn { right: -40px; }
+        
+        .cake-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 300px;
+        }
+        .order-form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .order-form label {
+            font-weight: bold;
+        }
+
+        .order-form input {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        article {
+            background: #fff5e1;
+            text-align: center; /* 텍스트 요소 중앙 정렬 */
+            width: 80%; /* 가로 크기 설정 (원하는 크기로 조정 가능) */
+            max-width: 1200px; /* 최대 가로 크기 제한 */
+            padding: 10px;
+            margin: auto; /* 중앙 정렬 (좌우 여백 자동) */
+            margin-bottom: 10px;  /* 아티클 사이의 간격 대략 한 줄 정도의 공백 */
+            border: 1px solid #ddd; /* 테두리 (선택 사항) */
+            border-radius: 10px; /* 모서리 둥글게 (선택 사항) */
+            background-color: #f9f9f9; /* 배경색 (선택 사항) */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        article img {
+            display: block; /* 이미지도 중앙 정렬 */
+            margin: 10px auto; /* 상하 10px 여백, 좌우 자동 정렬 */
+            max-width: 100%; /* 반응형을 위해 최대 너비 설정 */
+            height: auto; /* auto로 설정시 원본 비율 유지 */
+        }
+        .article-container {
+            display: flex; /* 가로 정렬 */
+            justify-content: center; /* 중앙 정렬 */
+            gap: 20px; /* 요소 사이 간격 */
+        }
+
+        .article-container article {
+            text-align: center; /* 내부 요소 중앙 정렬 */
+            width: 300px; /* 고정된 너비 설정 */
+            margin: 10px 5px; /* 상하 좌우 px 여백 */
+            border: 1px solid #ddd; /* 테두리 (선택 사항) */
+            border-radius: 10px; /* 모서리 둥글게 (선택 사항) */
+            padding: 15px;
+            background-color: #f9f9f9; /* 배경색 (선택 사항) */
+        }
+
+        footer {
+            background: #FBEFF1;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            clear: both;
+        }
+
+        /* footer 내의 span 요소들에 대한 스타일 추가 */
+        footer span {
+            margin-right: 20px;  /* span 요소 사이의 오른쪽 여백 */
+        }
+        /* 각 div에 여백 추가 */
+        footer div {
+            margin-bottom: 10px;  /* div 사이의 아래쪽 여백 */
+        }
+        .footer-left {
+            display: flex;
+            gap: 20px;  /* span 요소들 사이의 간격 */
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 20px;  /* span 요소들 사이의 간격 */
+        }
+
+        footer div.name {
+            /* text-align: center;  텍스트 중앙 정렬 */
+            display: flex;
+            justify-content: center;  /* 수평 중앙 정렬 */
+            color: white;
+        }
+
+        footer div.info {
+            color: #999A9F;
+            margin-bottom: 50px;  /* info div 아래쪽 여백 추가 */
+        }
+
+        footer div.info span {
+            color: #000000;  /* span 안의 텍스트를 흰색으로 설정 */
+        }
+
+        footer div.protect {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        footer div.logo{
+            /* text-align: right;  로고들을 우측으로 정렬 */
+            /* padding-right: 20px;  오른쪽 여백 추가 (선택사항) */
+            display: flex;
+            justify-content: flex-end;  /* 로고들을 우측으로 정렬 */
+            padding-right: 20px;  /* 오른쪽 여백 추가 (선택사항) */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Cheetah Lee's Cake</div>
+    
+</header>
+
+<nav style="color: #6b3e26">
+    <a href="bestcake.html">홈</a>
+    <a href="categ.html">메뉴</a>
+    <a href="order.html">주문하기</a>
+    <a href="QNA.html">문의하기</a>
+    <a href="cakeshoplogin.html">회원관리</a>
+</nav>
+
+<main>
+    <aside id="left-aside">
+        <h3>카테고리</h3>
+        <ul class="category-menu">
+            <li class="dropdown">
+                <a href="cake.html">CAKE</a>
+                <ul class="submenu">
+                    <li><a href="ricecake.html">앙금케이크<span class="move"></span></a></li>
+                    <li><a href="lunchbox.html">도시락케이크<span class="move"></span></a></li>
+                    <li><a href="letter.html">레터링케이크<span class="move"></span></a></li>
+                    <li class="dropdown"><a href="#">도형케이크<span class="move"></span></a>
+                        <ul class="submenu">
+                            <li><a href="circle.html">원형</a></li>
+                            <li><a href="heart.html">하트</a></li>
+                            <li><a href="char.html">캐릭터</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                    <a href="bread.html">BREAD</a>
+                    <ul class="submenu">
+                        <li><a href="plain.html">식빵<span class="move"></span></a></li>
+                    </ul>
+            </li>
+            <li class="dropdown">
+                <a href="cookies.html">COOKIE</a>
+                    <ul class="submenu">
+                        <li><a href="smorescookie.html">스모어쿠키<span class="move"></span></a></li>
+                        <li><a href="carrotcookie.html">당근쿠키<span class="move"></span></a></li>
+                        <li><a href="buttercookie.html">버터쿠키<span class="move"></span></a></li>
+                    </ul>
+            </li>
+            <li><a href="dessert.html">DESSERT</a></li>
+        </ul>
+    </aside>
+
+    <section>
+        <h2>돔형 맞춤 케이크 주문</h2>
+        <div class="order-container">
+            <div class="cake-image">
+                <button class="prev-btn">&#10094;</button>
+                <img src="/cakeshop/수박케이크내부.jpg" alt="돔형 맞춤 케이크" id="cakeinside-image">
+                <button class="next-btn">&#10095;</button>
+            </div>
+            <script>
+                const images = ["/cakeshop/수박케이크내부.jpg", "/cakeshop/수박케이크외관.jpg"];
+                let currentImageIndex = 0;
+                const imageElement = document.getElementById("cakeinside-image");
+                
+                document.querySelector(".prev-btn").addEventListener("click", () => {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    imageElement.src = images[currentImageIndex];
+                });
+            
+                document.querySelector(".next-btn").addEventListener("click", () => {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    imageElement.src = images[currentImageIndex];
+                });
+            </script>
+            <div class="cake-details">
+                <h3>돔형 맞춤 케이크</h3>
+                <p>NCT 마크의 생일케이크로 유명한 맞춤 케이크!</p>
+                <p>가격: 82,000원</p>
+                
+                <form action="#" method="POST" class="order-form">
+                    <label for="quantity">수량:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                    
+                    <label for="pickup-date">픽업 날짜:</label>
+                    <input type="date" id="pickup-date" name="pickup-date" required>
+                    
+                    <button type="submit" class="order-btn">구매하기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<aside id="right-aside">
+    <h3>🎉 이벤트</h3>
+    <p>신규 회원 가입 시 10% 할인!</p>
+    <img src="https://via.placeholder.com/150" alt="광고 이미지">
+    <br><br>
+    <h3>🎉 카카오톡 플친 추가 이벤트</h3>
+    <p>플친 추가 시 무료배송!</p>
+    <img src="https://via.placeholder.com/150" alt="광고 이미지">
+</aside>
+<footer>
+    <div class="info">
+        회사명 <span>치타리 케이크</span> 대표자명 <span>양서진</span> 주소 <span>서울 종로구 인사동길 12 대일빌딩 7층</span> 대표번호 <span>1998-1999</span>
+        <br>
+        사업자등록번호
+        <span>214-88-84534</span>
+        통신판매업 신고번호
+        <span>제2024-서울종로-09982호</span>
+        개인정보보호책임자
+        <span>양서진 / sjlovesnct@gmail.com</span>
+    </div>
+    <div class="protect">
+        치타리 케이크의 모든 디자인은 저작권의 보호를 받고 있습니다.<br>
+        © 2025 Cheetah Lee's Cake | 모든 권리 보유
+    </div>
+</footer>
+</body>
+</html>
