@@ -169,9 +169,12 @@ aside li:hover > ul {
 }
 /* 케이크 리스트 컨테이너 */
 .article-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 유지 */
     justify-content: center;
-    flex-wrap: wrap;
+    overflow: hidden; /* 넘치는 요소 숨김 */
+    max-width: 100%; /* 화면 크기에 맞게 조절 */
+    flex-wrap: nowrap; /* 줄 바꿈 방지 */
     gap: 20px;
     margin-top: 20px;
 }
@@ -270,6 +273,8 @@ section {
 .next-btn { right: -40px; }
 
 .cake-details {
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    /* position: fixed; 넘치는 부분 숨기려했으나 사진이랑 글자랑 겹쳐버림*/
     display: flex;
     flex-direction: column;
     justify-content: center;
