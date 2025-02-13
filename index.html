@@ -9,13 +9,15 @@
 <body>
 
 <header>
-    <div class="logo"><a href="#">Cheetah Lee's Cake</a></div>
+    <div class="logo" id="logo">
+        <a href="#" onclick="showHomeSection(); return false;">Cheetah Lee's Cake</a>
+    </div>
     <nav>
-        <a href="#" id="showHome">홈</a>
+        <a href="index.html" id="showHome">홈</a>
         <a href="categ.html">메뉴</a>
         <a href="order.html">주문하기</a>
         <a href="QNA.html">문의하기</a>
-        <a href="#" id="showLogin">회원관리</a>
+        <a href="cakeshoplogin.html" id="showLogin">회원관리</a>
     </nav>
 </header>
 
@@ -78,9 +80,9 @@
 				<input type="number" placeholder="나이" required>
 				<<select required>
 					<option value="" disabled selected>선택</option>
+                    <option value="Secret">미선택</option>
 					<option value="Male">남성</option>
 					<option value="Female">여성</option>
-					<option value="Other">기타</option>
 				</select>
 				<input type="text" placeholder="주소" required>
 				<button type="submit">회원가입</button>
@@ -137,11 +139,11 @@
 				<!-- 이미지 슬라이드 -->
 				<div class="cake-image">
 					<button class="arrow-btn left">&lt;</button>
-					<img src="cakeshop/수박케이크내부.jpg" alt="돔형 맞춤 케이크" id="cakeinside-image">
+					<img src="cakeshop/수박케이크내부.jpg" alt="돔형 맞춤 케이크" class="slider-image" id="cakeinside-image">
 					<button class="arrow-btn right">&gt;</button>
 				</div>
 				<script>
-					const images = ["cakeshop/수박케이크내부.jpg", "cakeshop/수박케이크외관.jpg"];
+					const images = ["cakeshop/수박케이크내부.jpg","cakeshop/수박케이크외관.jpg"];
 					let currentImageIndex = 0;
 					const imageElement = document.getElementById("cakeinside-image");
 
@@ -205,38 +207,6 @@
         © 2025 Cheetah Lee's Cake | 모든 권리 보유
     </div>
 </footer>
-<script>
-    // "회원관리" 버튼을 클릭하면 로그인 페이지 표시
-    document.getElementById("showLogin").addEventListener("click", function() {
-        document.getElementById("homeSection").style.display = "none";
-        document.getElementById("loginSection").style.display = "block";
-    });
-
-    // "홈" 버튼을 클릭하면 홈 화면 표시
-    document.getElementById("showHome").addEventListener("click", function() {
-        document.getElementById("loginSection").style.display = "none";
-        document.getElementById("registerForm").style.display = "none";
-        document.getElementById("homeSection").style.display = "block";
-    });
-
-    // **로고를 클릭하면 홈 화면으로 이동**
-    document.getElementById("logo").addEventListener("click", function() {
-        document.getElementById("loginSection").style.display = "none";
-        document.getElementById("registerForm").style.display = "none";
-        document.getElementById("homeSection").style.display = "block";
-    });
-
-    // "회원가입" 버튼을 클릭하면 회원가입 폼 표시
-    document.getElementById("showRegister").addEventListener("click", function() {
-        document.getElementById("loginSection").style.display = "none";
-        document.getElementById("registerForm").style.display = "block";
-    });
-
-    // "로그인" 버튼을 클릭하면 로그인 폼 다시 표시
-    document.getElementById("showLoginAgain").addEventListener("click", function() {
-        document.getElementById("registerForm").style.display = "none";
-        document.getElementById("loginSection").style.display = "block";
-    });
-</script>
+<script src="script.js"></script>
 </body>
 </html>

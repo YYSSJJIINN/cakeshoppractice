@@ -35,6 +35,7 @@
 }
 .login-container button:hover {
     background: #a0522d;
+    transform: scale(1.1);
 }
 .login-form {
     position: relative; /* 상대 위치를 기준으로 버튼을 절대 위치로 배치할 수 있음 */
@@ -106,6 +107,7 @@
 
 .signup-container button:hover {
     background-color: #a0522d;
+    transform: scale(1.1);
 }
 
 .signup-container .error {
@@ -124,7 +126,6 @@
     display: block;
     text-align: center;
     margin-top: 15px;
-    color: #4CAF50;
     text-decoration: none;
 }
 
@@ -147,7 +148,7 @@ form {
 }
 /* 🍩 달콤한 버튼 스타일 */
 button {
-    background-color: #ffb74d; /* 따뜻한 오렌지 */
+    background-color: #6b3e26;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -160,22 +161,42 @@ button {
 }
 /* 마우스를 올렸을 때 */
 button:hover {
-    background-color: #ff9800; /* 좀 더 진한 오렌지 */
-    transform: scale(1.05); /* 살짝 커지는 효과 */
+    transform: scale(1.1, 1.1); /* 가로와 세로 모두 커지는 효과 */
 }
 /* 클릭했을 때 */
 button:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
+.slider {
+    position: relative;
+    width: 100%; /* 슬라이드 영역의 너비 */
+    max-width: 600px; /* 최대 너비 설정 */
+    margin: 0 auto;
+    overflow: hidden; /* 이미지가 겹쳐서 보이지 않도록 설정 */
+}
+
+.cakeinside-image {
+    width: 100%; /* 이미지 크기를 슬라이드 영역에 맞추기 */
+    transition: transform 0.3s ease-in-out; /* 슬라이드 효과 */
+}
 .arrow-btn {
     background: none;  /* 배경 제거 */
     border: none;  /* 테두리 제거 */
-    font-size: 2rem;  /* 화살표 크기 조절 */
+    font-size: 30px; /* 기호 크기 설정 */
     color: black;  /* 화살표 색상 */
     cursor: pointer;  /* 클릭할 수 있도록 변경 */
     padding: 5px;  /* 클릭할 공간 확보 */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.arrow-btn.left {
+    left: 10px; /* 왼쪽 위치 조정 */
 }
 
+.arrow-btn.right {
+    right: 10px; /* 오른쪽 위치 조정 */
+}
 .arrow-btn:focus {
     outline: none;  /* 클릭 시 테두리 제거 */
 }
