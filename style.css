@@ -36,6 +36,17 @@
 .login-container button:hover {
     background: #a0522d;
 }
+.login-form {
+    position: relative; /* 상대 위치를 기준으로 버튼을 절대 위치로 배치할 수 있음 */
+    width: 300px; /* 원하는 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.login-form button {
+    position: absolute; /* 절대 위치로 설정 */
+    bottom: 10px; /* 아래쪽 10px */
+    right: 10px; /* 오른쪽 10px */
+}
 .links {
     margin-top: 15px;
     font-size: 14px;
@@ -356,17 +367,40 @@ aside li:hover > ul {
     color: #757575;
     font-size: 14px;
 }
+.order-form {
+    position: relative; /* 부모 요소 기준으로 절대 위치 배치 */
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%; /* 부모에 맞춰 전체 너비 사용 */
+    max-width: 600px; /* 최대 너비를 600px로 설정하여 너무 커지지 않도록 제한 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+.order-form .form-row {
+    display: flex; /* 가로로 배치 */
+    justify-content: space-between; /* 두 요소 사이에 간격을 추가 */
+    width: 100%; /* 부모 요소의 너비에 맞추기 */
+}
 
+.order-form .form-row .date-picker,
+.order-btn {
+    width: 48%; /* 각각 50%씩 차지하되, 여유 공간을 주기 위해 48%로 설정 */
+}
 /* 주문 버튼 */
 .order-btn {
     background-color: #6b3e26;
     color: white;
+    bottom: 10px; /* 부모 요소 하단에서 10px 떨어짐 */
+    right: 10px; /* 부모 요소 오른쪽에서 10px 떨어짐 */
     border: none;
     padding: 10px 15px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s ease-in-out;
+    align-self: flex-end; /* 오른쪽 끝으로 배치 */
 }
 
 .order-btn:hover {

@@ -9,19 +9,19 @@
 <body>
 
 <header>
-    <div class="logo">Cheetah Lee's Cake</div>
+    <div class="logo"><a href="#">Cheetah Lee's Cake</a></div>
     <nav>
-        <a href="bestcake.html">홈</a>
+        <a href="#" id="showHome">홈</a>
         <a href="categ.html">메뉴</a>
         <a href="order.html">주문하기</a>
         <a href="QNA.html">문의하기</a>
-        <a href="cakeshoplogin.html" id="manageAccount">회원관리</a>
+        <a href="#" id="showLogin">회원관리</a>
     </nav>
 </header>
 
 <main>
     <aside id="left-aside">
-        <h3>카테고리</h3>
+        <h3>MENU</h3>
         <ul class="category-menu">
             <li class="dropdown">
                 <a href="cake.html">CAKE</a>
@@ -55,6 +55,39 @@
             <li><a href="dessert.html">DESSERT</a></li>
         </ul>
     </aside>
+    <!-- 로그인 페이지 (기본적으로 숨김) -->
+	<section id="loginSection" style="display: none;">
+		<h2>로그인</h2>
+		<form action="#" method="POST">
+			<input type="text" placeholder="아이디" required><br><br>
+			<input type="password" placeholder="비밀번호" required><br><br>
+			<button type="submit">로그인</button>
+		</form>
+		<div class="links">
+			<a href="#">아이디 찾기</a> | 
+			<a href="#">비밀번호 찾기</a> | 
+			<a href="#" id="showRegister">회원가입</a>
+		</div>
+		<!-- 회원가입 폼 (기본적으로 숨김) -->
+		<div id="registerForm" style="display: none;">
+			<h2>회원가입</h2>
+			<form>
+				<input type="text" placeholder="이름" required>
+				<input type="text" placeholder="아이디" required>
+				<input type="password" placeholder="비밀번호" required>
+				<input type="number" placeholder="나이" required>
+				<<select required>
+					<option value="" disabled selected>선택</option>
+					<option value="Male">남성</option>
+					<option value="Female">여성</option>
+					<option value="Other">기타</option>
+				</select>
+				<input type="text" placeholder="주소" required>
+				<button type="submit">회원가입</button>
+			</form>
+			<p>이미 계정이 있으신가요? <a href="#" id="showLoginAgain">로그인</a></p>
+		</div>
+	</section>
 
     <!-- 베스트셀러 섹션 -->
     <section id="homeSection">
@@ -97,39 +130,55 @@
         </div>
     </section>
 
-    <!-- 로그인 페이지 (기본적으로 숨김) -->
-    <section id="loginSection" style="display: none;">
-        <h2>로그인</h2>
-        <form action="#" method="POST">
-            <input type="text" placeholder="아이디" required>
-            <input type="password" placeholder="비밀번호" required>
-            <button type="submit">로그인</button>
-        </form>
-        <div class="links">
-            <a href="#">아이디 찾기</a> | 
-            <a href="#">비밀번호 찾기</a> | 
-            <a href="#" id="showRegister">회원가입</a>
-        </div>
-    
-        <!-- 회원가입 폼 (기본적으로 숨김) -->
-        <div id="registerForm" style="display: none;">
-            <h2>회원가입</h2>
-            <form>
-                <input type="text" placeholder="이름" required>
-                <input type="text" placeholder="아이디" required>
-                <input type="password" placeholder="비밀번호" required>
-                <input type="number" placeholder="나이" required>
-                <select required>
-                    <option value="Male">남성</option>
-                    <option value="Female">여성</option>
-                    <option value="Other">기타</option>
-                </select>
-                <input type="text" placeholder="주소" required>
-                <button type="submit">회원가입</button>
-            </form>
-            <p>이미 계정이 있으신가요? <a href="#" id="showLoginAgain">로그인</a></p>
-        </div>
-    </section>
+	<!-- 돔형 맞춤 케이크 상세 페이지 -->
+	<section id="watermelonCakeDetail" style="display: none;">
+		<div class="cake-container">
+			<div class="order-container">
+				<!-- 이미지 슬라이드 -->
+				<div class="cake-image">
+					<button class="arrow-btn left">&lt;</button>
+					<img src="cakeshop/수박케이크내부.jpg" alt="돔형 맞춤 케이크" id="cakeinside-image">
+					<button class="arrow-btn right">&gt;</button>
+				</div>
+				<script>
+					const images = ["cakeshop/수박케이크내부.jpg", "cakeshop/수박케이크외관.jpg"];
+					let currentImageIndex = 0;
+					const imageElement = document.getElementById("cakeinside-image");
+
+					document.querySelector(".arrow-btn.left").addEventListener("click", () => {
+						currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+						imageElement.src = images[currentImageIndex];
+					});
+
+					document.querySelector(".arrow-btn.right").addEventListener("click", () => {
+						currentImageIndex = (currentImageIndex + 1) % images.length;
+						imageElement.src = images[currentImageIndex];
+					});
+				</script>
+				
+				<!-- 케이크 상세 정보 -->
+				<div class="cake-details">
+					<h3>돔형 맞춤 케이크</h3>
+					<p>NCT 마크의 생일케이크로 유명한 맞춤 케이크!</p>
+					<p><strong>가격:</strong> ₩ 82,000원</p>
+					
+					<div class="order-form">
+						<form action="#" method="POST" class="order-form">
+							<label for="quantity">수량:</label>
+							<input type="number" id="quantity" name="quantity" value="1" min="1" required>
+							
+							<div class="form-row">
+								<label for="pickup-date">픽업 날짜:</label>
+								<input type="date" class="date-picker" name="pickup-date" required>
+								
+								<button type="submit" class="order-btn" onclick="location.href='cart.html'">구매하기</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
 <aside id="right-aside">
     <h3>🎉 이벤트</h3>
@@ -156,6 +205,38 @@
         © 2025 Cheetah Lee's Cake | 모든 권리 보유
     </div>
 </footer>
+<script>
+    // "회원관리" 버튼을 클릭하면 로그인 페이지 표시
+    document.getElementById("showLogin").addEventListener("click", function() {
+        document.getElementById("homeSection").style.display = "none";
+        document.getElementById("loginSection").style.display = "block";
+    });
 
+    // "홈" 버튼을 클릭하면 홈 화면 표시
+    document.getElementById("showHome").addEventListener("click", function() {
+        document.getElementById("loginSection").style.display = "none";
+        document.getElementById("registerForm").style.display = "none";
+        document.getElementById("homeSection").style.display = "block";
+    });
+
+    // **로고를 클릭하면 홈 화면으로 이동**
+    document.getElementById("logo").addEventListener("click", function() {
+        document.getElementById("loginSection").style.display = "none";
+        document.getElementById("registerForm").style.display = "none";
+        document.getElementById("homeSection").style.display = "block";
+    });
+
+    // "회원가입" 버튼을 클릭하면 회원가입 폼 표시
+    document.getElementById("showRegister").addEventListener("click", function() {
+        document.getElementById("loginSection").style.display = "none";
+        document.getElementById("registerForm").style.display = "block";
+    });
+
+    // "로그인" 버튼을 클릭하면 로그인 폼 다시 표시
+    document.getElementById("showLoginAgain").addEventListener("click", function() {
+        document.getElementById("registerForm").style.display = "none";
+        document.getElementById("loginSection").style.display = "block";
+    });
+</script>
 </body>
 </html>
