@@ -14,11 +14,9 @@
             <a href="categ.html">메뉴</a>
             <a href="order.html">주문하기</a>
             <a href="QNA.html">문의하기</a>
-            <a href="#" id="manageAccount">회원관리</a>
+            <a href="cakeshoplogin.html">회원관리</a>
         </nav>
     </header>
-    
-    
     
     <main>
         <aside id="left-aside">
@@ -57,53 +55,67 @@
             </ul>
         </aside>
     
-        <div class="container">
-            <!-- 로그인 폼 -->
-            <div id="loginForm">
-                <h2>로그인</h2>
-                <form action="#" method="POST">
-                    <input type="text" placeholder="아이디" required><br>
-                    <input type="password" placeholder="비밀번호" required>
-                    <button type="submit">로그인</button>
-                </form>
-                <div class="links">
-                    <a href="#">아이디 찾기</a> | 
-                    <a href="#">비밀번호 찾기</a> | 
-                    <a href="#" id="showRegister">회원가입</a>
-                </div>
-            </div>
+        <div class="signup-container">
+            <h2>회원가입</h2>
+            <form id="registerForm">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" required placeholder="이름을 입력하세요">
     
-            <!-- 회원가입 폼 -->
-            <div id="registerForm" style="display: none;">
-                <h2>회원가입</h2>
-                <form>
-                    <input type="text" placeholder="이름" required><br><br>
-                    <input type="text" placeholder="아이디" required><br><br>
-                    <input type="password" placeholder="비밀번호" required><br><br>
-                    <input type="number" placeholder="나이" required><br><br>
-                    <select required>
-                        <option value="Male">남성</option>
-                        <option value="Female">여성</option>
-                        <option value="Other">기타</option>
-                    </select><br><br>
-                    <input type="text" placeholder="주소" required>
-                    <button type="submit">회원가입</button>
-                </form>
-                <p>이미 계정이 있으신가요? <a href="#" id="showLogin">로그인</a></p>
-            </div>
+                <label for="username">아이디</label>
+                <input type="text" id="username" name="username" required placeholder="아이디를 입력하세요">
+    
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" required placeholder="비밀번호를 입력하세요">
+    
+                <label for="age">나이</label>
+                <input type="number" id="age" name="age" required placeholder="나이를 입력하세요">
+    
+                <label for="gender">성별</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">남성</option>
+                    <option value="Female">여성</option>
+                    <option value="Other">기타</option>
+                </select>
+    
+                <label for="address">주소</label>
+                <input type="text" id="address" name="address" required placeholder="주소를 입력하세요">
+    
+                <button type="submit">회원가입</button>
+            </form>
+    
+            <p>이미 계정이 있으신가요? <a href="/login">로그인</a></p>
         </div>
+    
+        <script>
+            document.getElementById('registerForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const userData = {
+                    name: document.getElementById('name').value,
+                    username: document.getElementById('username').value,
+                    password: document.getElementById('password').value,
+                    age: document.getElementById('age').value,
+                    gender: document.getElementById('gender').value,
+                    address: document.getElementById('address').value,
+                };
+    
+                fetch('http://localhost:5000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        </script>
     </main>
-    <script>
-        document.getElementById("showRegister").addEventListener("click", function() {
-            document.getElementById("loginForm").style.display = "none";
-            document.getElementById("registerForm").style.display = "block";
-        });
-
-        document.getElementById("showLogin").addEventListener("click", function() {
-            document.getElementById("registerForm").style.display = "none";
-            document.getElementById("loginForm").style.display = "block";
-        });
-    </script>
     <aside id="right-aside">
         <h3>🎉 이벤트</h3>
         <p>신규 회원 가입 시 10% 할인!</p>
