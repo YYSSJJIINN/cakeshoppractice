@@ -203,7 +203,7 @@ button:active {
 body {
     justify-content: center;  /* 수평 중앙 정렬 */
     align-items: center;  /* 수직 중앙 정렬 */
-    font-family: Arial, sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
     display: flex;
     text-align: center;
     margin: 0;
@@ -537,10 +537,15 @@ article img {
 
 footer {
     background: #FBEFF1;
+    color: #fff; /* 밝은 텍스트 */
+    width: 100%; /* 전체 화면 가로폭 차지 */
     text-align: center;
-    padding: 15px;
+    padding: 30px 5%; /* 양옆 여백을 5% 줘서 가독성 증가 */
     width: 100%;
     clear: both;
+    font-size: 14px;
+    line-height: 1.6;
+    box-sizing: border-box; /* 패딩 포함한 크기 계산 */
 }
 
 /* footer 내의 span 요소들에 대한 스타일 추가 */
@@ -553,15 +558,21 @@ footer div {
 }
 
 footer div.info {
-    color: #999A9F;
+    color: #6b3e26;
+    max-width: 1200px; /* 너무 길어지는 걸 방지 */
+    margin: 0 auto 15px auto;
     margin-bottom: 50px;  /* info div 아래쪽 여백 추가 */
 }
 
 footer div.info span {
     color: #000000;  /* span 안의 텍스트를 검은색으로 설정 */
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 footer div.protect {
     margin-top: 30px;
     margin-bottom: 30px;
+    font-size: 13px;
+    opacity: 0.8;
 }

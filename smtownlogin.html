@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 | SMTOWN &STORE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #333;
+        }
+        .links {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #666;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>로그인</h2>
+        <form action="/member/login_process.html" method="POST">
+            <input type="text" name="userId" placeholder="아이디" required>
+            <input type="password" name="password" placeholder="비밀번호" required>
+            <button type="submit" class="login-btn">로그인</button>
+        </form>
+        <div class="links">
+            <a href="#">아이디 찾기</a> | 
+            <a href="#">비밀번호 찾기</a> | 
+            <a href="#">회원가입</a>
+        </div>
+    </div>
+
+</body>
+</html>
