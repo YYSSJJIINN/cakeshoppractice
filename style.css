@@ -5,6 +5,43 @@
     color: #6b3e26; /* 파란색을 기본 색상으로 바꾸지 않고, 원래 색상 유지 */
     text-decoration: none; /* 기본 파란색 하이퍼링크 스타일 없애기 */
 }
+.price {
+    color: black;
+    font-weight: bold;
+}
+img {
+    width: 300px;
+    height: 300px;
+}
+.hidden {
+    display: none;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.show {
+    display: flex;
+    opacity: 1;
+    height: auto;
+}
+
+#loadMoreBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6b3e26;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#loadMoreBtn:hover {
+    background-color: #6b3e26;
+}
 .login-container {
     background: #f4f4f4;
     padding: 20px;

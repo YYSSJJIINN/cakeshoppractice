@@ -10,54 +10,71 @@
 <body>
 
 <header>
-    <div class="logo" id="logo">
-        <a href="#" onclick="showHomeSection(); return false;">Cheetah Lee's Cake</a>
-    </div>
-    <nav>
-        <a href="index.html" id="showHome">홈</a>
-        <a href="categ.html">메뉴</a>
-        <a href="order.html">주문하기</a>
-        <a href="QNA.html">문의하기</a>
-        <a href="cakeshoplogin.html" id="showLogin">회원관리</a>
-    </nav>
+	<div class="logo" id="logo">
+		<a href="#" onclick="showHomeSection(); return false;">Cheetah Lee's Cake</a>
+	</div>
+	<nav>
+		<a href="index.html" id="showHome">홈</a>
+		<a href="categ.html">메뉴</a>
+		<a href="order.html">주문하기</a>
+		<a href="qna.html">문의하기</a>
+		<a href="cakeshoplogin.html" id="showLogin">회원관리</a>
+	</nav>
 </header>
 
-<main>
-    <aside id="left-aside">
-        <h3>MENU</h3>
-        <ul class="category-menu">
-            <li class="dropdown">
-                <a href="cake.html">CAKE</a>
+<aside id="left-aside">
+    <h3>MENU</h3>
+    <ul class="category-menu">
+        <li class="dropdown">
+            <a href="cake.html">CAKE</a>
+            <ul class="submenu">
+                <li><a href="ricecake.html">앙금케이크<span class="move"></span></a></li>
+                <li><a href="lunchbox.html">도시락케이크<span class="move"></span></a></li>
+                <li><a href="letter.html">레터링케이크<span class="move"></span></a></li>
+                <li class="dropdown">
+                    <a href="#">도형케이크<span class="move"></span></a>
+                    <ul class="submenu">
+                        <li><a href="circle.html">원형</a></li>
+                        <li><a href="heart.html">하트</a></li>
+                        <li><a href="char.html">캐릭터</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+                <a href="bread.html">BREAD</a>
                 <ul class="submenu">
-                    <li><a href="ricecake.html">앙금케이크<span class="move"></span></a></li>
-                    <li><a href="lunchbox.html">도시락케이크<span class="move"></span></a></li>
-                    <li><a href="letter.html">레터링케이크<span class="move"></span></a></li>
-                    <li class="dropdown"><a href="#">도형케이크<span class="move"></span></a>
-                        <ul class="submenu">
-                            <li><a href="circle.html">원형</a></li>
-                            <li><a href="heart.html">하트</a></li>
-                            <li><a href="char.html">캐릭터</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="plain.html">식빵<span class="move"></span></a></li>
                 </ul>
-            </li>
-            <li class="dropdown">
-                    <a href="bread.html">BREAD</a>
-                    <ul class="submenu">
-                        <li><a href="plain.html">식빵<span class="move"></span></a></li>
-                    </ul>
-            </li>
-            <li class="dropdown">
-                <a href="cookies.html">COOKIE</a>
-                    <ul class="submenu">
-                        <li><a href="smorescookie.html">스모어쿠키<span class="move"></span></a></li>
-                        <li><a href="carrotcookie.html">당근쿠키<span class="move"></span></a></li>
-                        <li><a href="buttercookie.html">버터쿠키<span class="move"></span></a></li>
-                    </ul>
-            </li>
-            <li><a href="dessert.html">DESSERT</a></li>
-        </ul>
-    </aside>
+        </li>
+        <li class="dropdown">
+            <a href="cookies.html">COOKIE</a>
+                <ul class="submenu">
+                    <li><a href="smorescookie.html">스모어쿠키<span class="move"></span></a></li>
+                    <li><a href="carrotcookie.html">당근쿠키<span class="move"></span></a></li>
+                    <li><a href="buttercookie.html">버터쿠키<span class="move"></span></a></li>
+                </ul>
+        </li>
+        <li class="dropdown">
+            <a href="dessert.html">DESSERT</a>
+                <ul class="submenu">
+                    <li><a href="tart.html">타르트<span class="move"></span></a></li>
+                    <li><a href="pudding.html">푸딩<span class="move"></span></a></li>
+                </ul>
+        </li>
+    </ul>
+</aside>
+<aside id="right-aside">
+    <h3>🎉 이벤트</h3>
+    <p>신규 회원 가입 시 10% 할인!</p>
+    <!-- <img src="https://via.placeholder.com/150" alt="광고 이미지"> -->
+    <br><br>
+    <h3>🎉 카카오톡 플친 추가 이벤트</h3>
+    <p>플친 추가 시 무료배송!</p>
+    <!-- <img src="https://via.placeholder.com/150" alt="광고 이미지"> -->
+</aside>
+
+<main>
     <!-- 로그인 페이지 (기본적으로 숨김) -->
 	<section id="loginSection" style="display: none;">
 		<h2>로그인</h2>
@@ -97,40 +114,58 @@
         <h2>베스트 케이크</h2>
         <div class="article-container">
             <article class="cake-card">
-                <h3><a href="#"><img src="cakeshop/chocolatemousses.png" height="300px" width="300px"><br>초콜릿 무스 케이크</a></h3>
+                <h3><a href="#"><img src="cakeshop/chocolatemousses.png"><br>초콜릿 무스 케이크</a></h3>
                 <p>진한 초콜릿 맛이 일품인 부드러운 무스 케이크입니다.</p>
-                <p style="color: #000000;">₩: 25,000원</p>
+                <p><span class="price">₩ 25,000</span></p> 
             </article>
             <article class="cake-card">
-                <h3><a href="#"><img src="cakeshop/ukr2strawberrycake.png" height="300px" width="300px"><br>우크라이나식 딸기 케이크</a></h3>
+                <h3><a href="#"><img src="cakeshop/ukr2strawberrycake.png"><br>우크라이나식 딸기 케이크</a></h3>
                 <p>신선한 딸기와 농축된 딸기젤리가 조화로운 이국적인 케이크!</p>
-                <p style="color: #000000;">₩ 25,000원</p>
+                <p><span class="price">₩ 25,000</span></p> 
             </article>
             <article class="cake-card">
-                <h3><a href="#"><img src="cakeshop/도형1.png" height="300px" width="300px"><a href="#"><br>도형 케이크</a></h3>
+                <h3><a href="#"><img src="cakeshop/도형1.png"><br>도형 케이크</a></h3>
                 <p>각양각색의 도형 케이크!</p>
-                <p style="color: #000000;">₩ 32,000원</p>
+                <p><span class="price">₩ 32,000</span></p> 
             </article>
         </div>
         <div class="article-container">
             <article class="cake-card">
-                <section id="page1" class="page">
-                <h3><a href="watermeloncake.html"><img src="cakeshop/수박케이크내부.jpg" height="300px" width="300px"><br>돔형 맞춤 케이크</a></h3>
+                <h3><a href="watermeloncake.html"><img src="cakeshop/수박케이크내부.jpg"><br>돔형 맞춤 케이크</a></h3>
                 <p>NCT 마크의 생일케이크로 유명한 맞춤 케이크!</p>
-                <p style="color: #000000;">₩ 82,000원</p>
-                </section>
+                <p><span class="price">₩ 82,000</span></p> 
             </article>
             <article class="cake-card">
-                <h3><a href="#"><img src="cakeshop/앙금플라워1단.png" height="300px" width="300px"><br>앙금 플라워 떡 케이크</a></h3>
+                <h3><a href="#"><img src="cakeshop/앙금플라워1단.png"><br>앙금 플라워 떡 케이크</a></h3>
                 <p>유제품을 못 먹는 사람들과 빵을 싫어하는 어르신들도 좋아하는 케이크!</p>
-                <p style="color: #000000;">₩ 38,000원</p>
+                <p><span class="price">₩ 38,000</span></p> 
             </article>
             <article class="cake-card">
-                <h3><a href="#"><img src="cakeshop/레터링1.png" height="300px" width="300px"><br>레터링 케이크</a></h3>
+                <h3><a href="#"><img src="cakeshop/레터링1.png"><br>레터링 케이크</a></h3>
                 <p>기념일에 적합한 맞춤 케이크!</p>
-                <p style="color: #000000;">₩ 30,000원</p>
+                <p><span class="price">₩ 30,000</span></p> 
             </article>
         </div>
+        <div class="article-container hidden" id="moreCakes">
+            <article class="cake-card">
+                <h3><a href="#"><img src="cakeshop/fruittart.png" height="300px" width="300px"><br>과일 타르트</a></h3>
+                <p>신선한 과일이 가득한 상큼한 타르트!</p>
+                <p><span class="price">₩ 31,000원</span></p> 
+            </article>
+            <article class="cake-card">
+                <h3><a href="#"><img src="cakeshop/matchacake.png" height="300px" width="300px"><br>말차 케이크</a></h3>
+                <p>진한 말차 향과 부드러운 크림이 어우러진 말차 케이크!</p>
+                <p><span class="price">₩ 35,000원</span></p> 
+            </article>
+            <article class="cake-card">
+                <h3><a href="#"><img src="cakeshop/cheesecake.png" height="300px" width="300px"><br>뉴욕 치즈케이크</a></h3>
+                <p>꾸덕하고 진한 뉴욕 스타일 치즈케이크!</p>
+                <p><span class="price">₩ 33,000원</span></p> 
+            </article>
+        </div>
+        
+        <!-- 더보기 버튼 -->
+        <button id="loadMoreBtn">더보기</button>
     </section>
 
 	<!-- 돔형 맞춤 케이크 상세 페이지 -->
@@ -183,15 +218,6 @@
 		</div>
 	</section>
 </main>
-<aside id="right-aside">
-    <h3>🎉 이벤트</h3>
-    <p>신규 회원 가입 시 10% 할인!</p>
-    <!-- <img src="https://via.placeholder.com/150" alt="광고 이미지"> -->
-    <br><br>
-    <h3>🎉 카카오톡 플친 추가 이벤트</h3>
-    <p>플친 추가 시 무료배송!</p>
-    <!-- <img src="https://via.placeholder.com/150" alt="광고 이미지"> -->
-</aside>
 <footer>
     <div class="info">
         회사명 <span>치타리 케이크</span> 대표자명 <span>양서진</span> 주소 <span>서울 종로구 인사동길 12 대일빌딩 7층</span> 대표번호 <span>1998-1999</span>
